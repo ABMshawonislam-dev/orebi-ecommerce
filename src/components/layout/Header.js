@@ -42,11 +42,11 @@ const Header = () => {
     });
   }, []);
   return (
-    <div className="bg-[#F5F5F3] py-6">
+    <div className=" bg-[#F5F5F3] py-6">
       <Container>
         <Flex className="flex justify-between">
           <div className="flex items-center">
-            <Dropdown className="relative" dropref={categooryRef}>
+            <Dropdown className="relative z-50" dropref={categooryRef}>
               <p className="font-regular flex items-center gap-x-2.5 font-dm text-sm">
                 <FaBars />{" "}
                 <span className="hidden lg:inline-block">Shop by Category</span>
@@ -90,7 +90,7 @@ const Header = () => {
           </div>
           <div className="flex items-center">
             <Flex className="flex gap-x-10">
-              <Dropdown className="relative" dropref={userRef}>
+              <Dropdown className="relative z-50" dropref={userRef}>
                 <div className="flex items-center ">
                   <FaUserAlt />
                   <RxTriangleDown />
@@ -111,7 +111,7 @@ const Header = () => {
               </Dropdown>
 
               <div>
-                <Dropdown className="relative" dropref={cartRef}>
+                <Dropdown className="relative z-50" dropref={cartRef}>
                   <HiShoppingCart className="text-2xl" />
 
                   {cartDropSownShow && (

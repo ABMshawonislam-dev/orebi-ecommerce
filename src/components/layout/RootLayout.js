@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Navabar from "./Navabar";
 
@@ -7,6 +8,7 @@ const RootLayout = () => {
     <>
       <Navabar />
       <Header />
+      <Outlet />
     </>
   );
 };
