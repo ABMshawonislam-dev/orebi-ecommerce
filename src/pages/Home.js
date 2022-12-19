@@ -3,7 +3,6 @@ import AdditionalInfo from "../components/layout/AdditionalInfo";
 import Advertise from "../components/layout/Advertise";
 import Banner from "../components/layout/Banner";
 import Bestseller from "../components/layout/Bestseller";
-import Footer from "../components/layout/Footer";
 import MiddleAdvertisement from "../components/layout/MiddleAdvertisement";
 import Newarrival from "../components/layout/Newarrival";
 import Offers from "../components/layout/Offers";
@@ -18,7 +17,6 @@ const Home = () => {
       <Bestseller />
       <MiddleAdvertisement />
       <Offers />
-      <Footer />
     </>
   );
 };
