@@ -15,7 +15,7 @@ function Items({ currentItems }) {
     <>
       {currentItems &&
         currentItems.map((item, index) => (
-          <div className="w-[32%]">
+          <div className="md:w-[49%] lg:w-[32%]">
             <Product key={index} src="assets/p1.png" badge={true} />
           </div>
         ))}
@@ -39,7 +39,7 @@ const Pagination = ({ itemsPerPage }) => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-between">
+      <div className="md:flex md:flex-wrap md:justify-between">
         <Items currentItems={currentItems} />
       </div>
       <ReactPaginate
@@ -51,11 +51,11 @@ const Pagination = ({ itemsPerPage }) => {
         previousClassName="hidden"
         nextClassName="hidden"
         pageClassName="inline-block border border-sloid border-[#F0F0F0] py-2 px-3.5 font-dm font-regular font-sm "
-        containerClassName="flex gap-x-3.5 mt-12"
+        containerClassName="flex flex-wrap gap-x-3.5 gap-y-3.5 md:gap-y-0 mt-12"
         activeClassName="inline-block border border-sloid border-[#F0F0F0] py-2 px-3.5 font-dm font-regular font-sm bg-black text-white"
       />
-      <p className="font-regular font-sm absolute bottom-0 right-0 font-dm text-[#767676]">
-        Products from {itemOffset} to {itemOffset + itemsPerPage} of 80
+      <p className="font-regular font-sm lg:absolute lg:bottom-0 lg:right-0 mt-2.5 lg:mt-0 font-dm text-[#767676]">
+        Products from {itemOffset} to {itemOffset + itemsPerPage} of {items.length}
       </p>
     </>
   );
