@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { GoTriangleDown } from "react-icons/go";
+import { category } from "../../data/data";
 import Flex from "./Flex";
 import LeftSidebarItem from "./LeftSidebarItem";
-const SidebarContent = ({ dropDown, droptitle }) => {
+
+const SidebarContent = ({ dropDown, droptitle, data }) => {
   let [drop, setDrop] = useState(dropDown);
   let [show, setShow] = useState(dropDown);
+  console.log("cat", data);
   return (
     <div className="mb-14">
       {drop ? (
@@ -19,67 +22,78 @@ const SidebarContent = ({ dropDown, droptitle }) => {
         </div>
       ) : (
         <h3 className="mb-9 cursor-pointer font-dm text-xl font-bold">
-          {droptitle}{" "}
+          {droptitle}
+          {"adas "}
         </h3>
       )}
 
       {show && (
         <>
-          <LeftSidebarItem subdropdown={false} title="Color 1">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawonasdasd
-            </h1>
-          </LeftSidebarItem>
-          <LeftSidebarItem subdropdown={true} title="Category 2" color="yellow">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
-          <LeftSidebarItem subdropdown={true} title="Category 3" color="green">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
-          <LeftSidebarItem subdropdown={true} title="Category 4" color="blue">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
-          <LeftSidebarItem subdropdown={true} title="Category 5" color="purple">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
+          {data.map((item, index) =>
+            item.subcategory ? (
+              <>
+                <LeftSidebarItem
+                  subdropdown={item.subcategory ? true : false}
+                  title={item.name}
+                >
+                  {item.subcategory &&
+                    item.subcategory.map((sitem) => (
+                      <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
+                        {sitem.name}
+                      </h1>
+                    ))}
+                </LeftSidebarItem>
+              </>
+            ) : (
+              <LeftSidebarItem
+                subdropdown={item.subcategory ? true : false}
+                title={item.name}
+                color={item.code}
+              >
+                {item.subcategory &&
+                  item.subcategory.map((sitem) => (
+                    <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
+                      {sitem.name}
+                    </h1>
+                  ))}
+              </LeftSidebarItem>
+            )
+          )}
         </>
       )}
 
       {!drop && (
         <>
-          <LeftSidebarItem subdropdown={true} title="Category 1">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
-          <LeftSidebarItem subdropdown={true} title="Category 2" color="red">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
-          <LeftSidebarItem subdropdown={true} title="Category 3" color="red">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
-          <LeftSidebarItem subdropdown={true} title="Category 4" color="red">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
-          <LeftSidebarItem subdropdown={true} title="Category 5" color="red">
-            <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
-              shawon
-            </h1>
-          </LeftSidebarItem>
+          {data.map((item, index) =>
+            item.subcategory ? (
+              <>
+                <LeftSidebarItem
+                  subdropdown={item.subcategory ? true : false}
+                  title={item.name}
+                >
+                  {item.subcategory &&
+                    item.subcategory.map((sitem) => (
+                      <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
+                        {sitem.name}
+                      </h1>
+                    ))}
+                </LeftSidebarItem>
+              </>
+            ) : (
+              <LeftSidebarItem
+                subdropdown={item.subcategory ? true : false}
+                title={item.name}
+                color={item.code}
+              >
+                {item.subcategory &&
+                  item.subcategory.map((sitem) => (
+                    <h1 className="font-regular cursor-pointer border-b border-solid border-[#767676] py-5 font-dm text-base text-[#767676]">
+                      {sitem.name}
+                    </h1>
+                  ))}
+              </LeftSidebarItem>
+            )
+          )}
         </>
       )}
     </div>
